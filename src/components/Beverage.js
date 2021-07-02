@@ -5,9 +5,11 @@ function Beverage(props) {
   return (
     <React.Fragment>
       <div onClick={() => props.whenBeverageClicked(props.id)}>
-        <h3>{props.name} --- ${props.price}</h3>
-        <p>{props.brand}</p>
-        <p>{props.style} || ABV: {props.abv}%</p>
+        <h2>{props.name} --- ${props.price}</h2>
+        <h3>{props.brand}</h3>
+        <p>{props.style}</p>
+        <p>ABV: {props.abv}%</p>
+        <hr />
       </div>
     </React.Fragment>
   );
