@@ -1,5 +1,8 @@
 import React from 'react';
 import BeverageList from './BeverageList';
+import EditBeverageForm from './EditBeverageForm';
+import BeverageDetail from './BeverageDetail';
+import NewBeverageForm from './NewBeverageForm';
 
 class BeverageControl extends React.Component {
   constructor(props) {
