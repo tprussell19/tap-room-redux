@@ -12,7 +12,7 @@ function EditBeverageForm(props) {
       style: event.target.style.value,
       abv: event.target.abv.value,
       price: event.target.price.value,
-      quantity: event.target.quantity.value,
+      pints: event.target.pints.value,
       id: beverage.id
     });
   }

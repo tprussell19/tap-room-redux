@@ -10,7 +10,7 @@ function ReusableForm(props) {
         <input type="text" name="style" placeholder="Beer or Cider Style" />
         <input type="float" name="abv" placeholder="ABV %" />
         <input type="number" name="price" placeholder="Price (per 16oz)" />
-        <input type="number" name="quantity" placeholder="Number of pints(full = 124, pony = 62)" />
+        <input type="number" name="pints" placeholder="Number of pints(full = 124, pony = 62)" />
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

@@ -21,7 +21,7 @@ Beverage.propTypes = {
   style: PropTypes.string.isRequired,
   abv: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired,
+  pints: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenBeverageClicked: PropTypes.func
 };

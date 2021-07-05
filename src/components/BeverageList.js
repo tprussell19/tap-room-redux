@@ -14,7 +14,7 @@ function BeverageList(props) {
         style={beverage.style}
         abv={beverage.abv}
         price={beverage.price}
-        quantity={beverage.quantity}
+        pints={beverage.pints}
         id={beverage.id}
         key={beverage.id}
         />

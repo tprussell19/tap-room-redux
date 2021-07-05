@@ -10,7 +10,7 @@ function BeverageDetail(props) {
       <h4>{beverage.brand}</h4>
       <p>Style: {beverage.style}</p>
       <p>ABV: {beverage.abv}%</p>
-      <p>Pints remaining in keg:{beverage.quantity}</p>
+      <p>Pints remaining in keg:{beverage.pints}</p>
       <button onClick={props.onClickingEdit}>Update Beverage</button>
       <button onClick={() => onClickingDelete(beverage.id)}>Delete Beverage</button>
       <hr />

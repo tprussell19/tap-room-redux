@@ -69,6 +69,21 @@ class BeverageControl extends React.Component {
     });
   };
 
+  handleOrderingAPint = () => {
+    const selectedBeverage = this.state.selectedBeverage;
+    const orderedBeverage = this.state.selectedBeverage.pints--;
+    if (orderedBeverage.pints <= 0) {
+      orderedBeverage.pints = 0;
+    }
+    const newMasterBeverageList = this.state.masterBeverageList
+      .filter((beverage) => beverage.id !== this.state.selectedBeverage.id)
+      .concat(orderedBeverage);
+    this.setState({
+      masterBeverageList: newMasterBeverageList,
+      selectedBeverage: orderedBeverage
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -86,6 +101,7 @@ class BeverageControl extends React.Component {
           beverage={this.state.selectedBeverage}
           onClickingDelete={this.handleDeletingBeverage}
           onClickingEdit={this.handleEditClick}
+          onClickingOrderAPint={this.handleOrderingAPint}
         />
       );
       buttonText = "Return to Beverage List";
