@@ -69,12 +69,9 @@ class BeverageControl extends React.Component {
     });
   };
 
-  handleOrderingAPint = () => {
-    const selectedBeverage = this.state.selectedBeverage;
-    const orderedBeverage = this.state.selectedBeverage.pints--;
-    if (orderedBeverage.pints <= 0) {
-      orderedBeverage.pints = 0;
-    }
+  handleOrderingAPint = (id) => {
+    const selectedBeverage = this.state.masterBeverageList.filter((beverage) => beverage.id === id)[0];
+    const orderedBeverage = Object.assign( {}, selectedBeverage, { pints: (selectedBeverage.pints - 1) });
     const newMasterBeverageList = this.state.masterBeverageList
       .filter((beverage) => beverage.id !== this.state.selectedBeverage.id)
       .concat(orderedBeverage);
