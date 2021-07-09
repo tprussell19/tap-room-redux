@@ -14,4 +14,17 @@ describe('tap room actions', () => {
     });
   });
 
+  it('addKeg should create ADD_KEG action', () => {
+    expect(actions.addKeg({name: 'Sticky Hands', brand: 'Block 15', style: 'Hop Experience Ale', abv: '8.1', price: '6.50', pints: 124, id: 1,})).toEqual({
+      type: 'ADD_KEG',
+      name: 'Sticky Hands',
+      brand: 'Block 15',
+      style: 'Hop Experience Ale',
+      abv: '8.1',
+      price: '6.50',
+      pints: 124,
+      id: 1,
+    })
+  })
+
 });
