@@ -50,3 +50,5 @@ _Please contact through Github_
 MIT License.
 
 Copyright (c) 2021 _Thomas Russell_
+
+<!-- changes made in order to make commit -->
