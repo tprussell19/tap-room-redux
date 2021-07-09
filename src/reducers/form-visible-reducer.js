@@ -1,4 +1,4 @@
-export default (state = false, action) => {
+const formVisibleReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_FORM':
       return !state;
@@ -6,3 +6,5 @@ export default (state = false, action) => {
       return state;
   }
 };
+
+export default formVisibleReducer;

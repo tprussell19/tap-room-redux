@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+const kegListReducer = (state = {}, action) => {
   const { name, brand, style, abv, price, pints, id } = action;
   switch (action.type) {
     case 'ADD_KEG':
@@ -21,3 +21,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default kegListReducer;
