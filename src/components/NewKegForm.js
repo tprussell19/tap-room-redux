@@ -3,10 +3,10 @@ import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
 
-function NewBeverageForm(props) {
-  function handleNewBeverageFormSubmission(event) {
+function NewKegForm(props) {
+  function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewBeverageCreation({
+    props.onNewKegCreation({
       name: event.target.name.value,
       brand: event.target.brand.value,
       style: event.target.style.value,
@@ -17,18 +17,18 @@ function NewBeverageForm(props) {
     });
   }
 
-  NewBeverageForm.propTypes = {
-    onNewBeverageCreation: PropTypes.func
+  NewKegForm.propTypes = {
+    onNewKegCreation: PropTypes.func
   };
 
   return (
     <React.Fragment>
       <ReusableForm
-        formSubmissionHandler={handleNewBeverageFormSubmission}
-        buttonText="Add Beverage"
+        formSubmissionHandler={handleNewKegFormSubmission}
+        buttonText="Add Keg"
         />
     </React.Fragment>
   );
 }
 
-export default NewBeverageForm;
+export default NewKegForm;

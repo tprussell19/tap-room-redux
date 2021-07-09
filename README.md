@@ -6,7 +6,7 @@
 
 ## Description
 
-_This application allows a bartender to keep track of the beers, ciders, hard seltzers, etc. on their tap list including the name, brand, style of beverage, ABV, and price. It also keeps track of how many pints of the beverage are left in the keg and will disable sales of the beverage when it is sold out. The user can create new entries for the tap list, update entries, view the tap list, view the details of a particular beverage, and delete a beverage from the tap list._
+_This application allows a bartender to keep track of the beers, ciders, hard seltzers, etc. on their tap list including the name, brand, style of keg, ABV, and price. It also keeps track of how many pints of the keg are left in the keg and will disable sales of the keg when it is sold out. The user can create new entries for the tap list, update entries, view the tap list, view the details of a particular keg, and delete a keg from the tap list._
 
 ## Componenet Diagram
 
