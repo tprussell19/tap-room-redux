@@ -13,6 +13,23 @@ describe('kegListReducer', () => {
     id: 1,
   }
 
+  const currentState = {
+    1: {name: 'Sticky Hands',
+    brand: 'Block 15',
+    style: 'Hop Experience Ale',
+    abv: '8.1',
+    price: '6.50',
+    pints: 124,
+    id: 1,},
+    2: {name: 'keg 2',
+    brand: 'another brewery',
+    style: 'IPA',
+    abv: '5.3',
+    price: '5',
+    pints: 124,
+    id: 2,}
+  }
+
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(kegListReducer({}, { type: null })).toEqual({});
   });
@@ -40,6 +57,22 @@ describe('kegListReducer', () => {
         pints: pints,
         id: id
       }
+    });
+  });
+
+  test('Should successfully delete a keg', () => {
+    action = {
+      type: 'DELETE_KEG',
+      id: 1
+    };
+    expect(kegListReducer(currentState, action)).toEqual({
+      2: {name: 'keg 2',
+      brand: 'another brewery',
+      style: 'IPA',
+      abv: '5.3',
+      price: '5',
+      pints: 124,
+      id: 2,}
     });
   });
 
