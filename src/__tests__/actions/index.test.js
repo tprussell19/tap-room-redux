@@ -33,8 +33,11 @@ describe('tap room actions', () => {
     });
   });
 
-  // it('selectKeg should create SELECT_KEG action', () => {
-  //   expect(a.selectKeg(kegData))
-  // })
+  it('selectKeg should create SELECT_KEG action', () => {
+    expect(a.selectKeg(kegData)).toEqual({
+      type: c.SELECT_KEG,
+      ...kegData
+    });
+  });
 
 });
