@@ -40,4 +40,10 @@ describe('tap room actions', () => {
     });
   });
 
+  it('clearSelectedKeg should create CLEAR_SELECTED_KEG', () => {
+    expect(a.clearSelectedKeg()).toEqual({
+      type: c.CLEAR_SELECTED_KEG
+    });
+  });
+
 });
