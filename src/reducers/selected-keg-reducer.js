@@ -13,6 +13,8 @@ const selectedKegReducer = (state = {}, action) => {
         pints: pints,
         id: id
       }
+    case c.CLEAR_SELECTED_KEG:
+      return {};
     default:
       return state;
   }
