@@ -51,4 +51,10 @@ describe("rootReducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
   });
 
+  test('Check that SELECT_KEG action works for selectedKegReducer and root reducer', () => {
+    const action = a.selectKeg(kegData);
+    store.dispatch(action);
+    expect(store.getState().selectedKeg).toEqual(selectedKegReducer(undefined, action));
+  })
+
 });
