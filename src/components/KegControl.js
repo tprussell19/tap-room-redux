@@ -12,15 +12,16 @@ class KegControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      selectedKeg: null,
       editing: false
     };
   }
 
   handleClick = () => {
-    if (this.state.selectedKeg != null) {
+    if (this.props.selectedKeg != null) {
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
       this.setState({
-        selectedKeg: null,
         editing: false
       });
     } else {
@@ -65,13 +66,13 @@ class KegControl extends React.Component {
   };
 
   handleOrderingAPint = (id) => {
-    const selectedKeg = this.state.masterKegList.filter((keg) => keg.id === id)[0];
+    const selectedKeg = Object.values(this.props.masterKegList).filter((keg) => keg.id === id)[0];
     const orderedKeg = Object.assign( {}, selectedKeg, { pints: (selectedKeg.pints - 1) });
-    const newMasterKegList = this.state.masterKegList
-      .filter((keg) => keg.id !== this.state.selectedKeg.id)
-      .concat(orderedKeg);
+    // const newMasterKegList = Object.values(this.props.masterKegList)
+    //   .filter((keg) => keg.id !== (selectedKeg.id))
+    //   .concat(orderedKeg);
     this.setState({
-      masterKegList: newMasterKegList,
+      // masterKegList: newMasterKegList,
       selectedKeg: orderedKeg
     });
   }
@@ -123,13 +124,15 @@ class KegControl extends React.Component {
 
 KegControl.propTypes = {
   masterKegList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  selectedKeg: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
     masterKegList: state.masterKegList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedKeg: state.selectedKeg
   }
 }
 
