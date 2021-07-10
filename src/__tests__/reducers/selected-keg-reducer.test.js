@@ -25,4 +25,11 @@ describe('selectedKegReducer', () => {
     expect(selectedKegReducer({}, action)).toEqual(kegData);
   });
 
+  test('Should return an empty object keg selection is cleared', () => {
+    const action = {
+      type: c.CLEAR_SELECTED_KEG
+    };
+    expect(selectedKegReducer(kegData, action)).toEqual({});
+  });
+
 })
