@@ -1,6 +1,6 @@
 import * as c from './../actions/ActionTypes';
 
-const selectedKegReducer = (state = {}, action) => {
+const selectedKegReducer = (state = null, action) => {
   const { name, brand, style, abv, price, pints, id } = action;
   switch (action.type) {
     case c.SELECT_KEG:
@@ -14,7 +14,7 @@ const selectedKegReducer = (state = {}, action) => {
         id: id
       }
     case c.CLEAR_SELECTED_KEG:
-      return {};
+      return null;
     default:
       return state;
   }

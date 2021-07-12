@@ -17,10 +17,12 @@ class KegControl extends React.Component {
   }
 
   handleClick = () => {
-    if (this.props.selectedKeg != null) {
+    if (this.props.selectedKeg !== null) {
       const { dispatch } = this.props;
       const action = a.toggleForm();
       dispatch(action);
+      const action2 = a.clearSelectedKeg()
+      dispatch(action2);
       this.setState({
         editing: false
       });
@@ -40,8 +42,10 @@ class KegControl extends React.Component {
   };
 
   handleChangingSelectedKeg = (id) => {
+    const { dispatch } = this.props;
     const selectedKeg = this.props.masterKegList[id];
-    this.setState({ selectedKeg: selectedKeg });
+    const action = a.selectKeg(selectedKeg);
+    dispatch(action);
   };
 
   handleEditClick = () => {
@@ -52,9 +56,10 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.addKeg(kegToEdit);
     dispatch(action);
+    const action2 = a.clearSelectedKeg();
+    dispatch(action2);
     this.setState({
       editing: false,
-      selectedKeg: null,
     });
   };
 
@@ -62,36 +67,34 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id);
     dispatch(action);
-    this.setState({selectedKeg: null});
+    const action2 = a.clearSelectedKeg();
+    dispatch(action2);
   };
 
   handleOrderingAPint = (id) => {
-    const selectedKeg = Object.values(this.props.masterKegList).filter((keg) => keg.id === id)[0];
+    const { dispatch } = this.props;
+    const selectedKeg = this.props.masterKegList[id];
     const orderedKeg = Object.assign( {}, selectedKeg, { pints: (selectedKeg.pints - 1) });
-    // const newMasterKegList = Object.values(this.props.masterKegList)
-    //   .filter((keg) => keg.id !== (selectedKeg.id))
-    //   .concat(orderedKeg);
-    this.setState({
-      // masterKegList: newMasterKegList,
-      selectedKeg: orderedKeg
-    });
+    const action = a.addKeg(orderedKeg);
+    dispatch(action);
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    console.log(this.props.selectedKeg);
     if (this.state.editing) {
       currentlyVisibleState = (
         <EditKegForm
-          keg={this.state.selectedKeg}
+          keg={this.props.selectedKeg}
           onEditKeg={this.handleEditingKegInList}
         />
       );
       buttonText = "Return to Keg List";
-    } else if (this.state.selectedKeg != null) {
+    } else if (this.props.selectedKeg !== null) {
       currentlyVisibleState = (
         <KegDetail
-          keg={this.state.selectedKeg}
+          keg={this.props.selectedKeg}
           onClickingDelete={this.handleDeletingKeg}
           onClickingEdit={this.handleEditClick}
           onClickingOrderAPint={this.handleOrderingAPint}

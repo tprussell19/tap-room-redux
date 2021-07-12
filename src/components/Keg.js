@@ -19,8 +19,8 @@ Keg.propTypes = {
   name: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
   style: PropTypes.string.isRequired,
-  abv: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
+  abv: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
   pints: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenKegClicked: PropTypes.func

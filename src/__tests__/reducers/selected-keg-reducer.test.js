@@ -14,7 +14,7 @@ describe('selectedKegReducer', () => {
   }
 
   test('Should return default state if there is no action type passed into the reducer', () => {
-    expect(selectedKegReducer({}, { type: null})).toEqual({});
+    expect(selectedKegReducer(undefined, { type: null })).toEqual(null);
   });
 
   test('Should successfully return data from the selected keg', () => {
@@ -22,14 +22,14 @@ describe('selectedKegReducer', () => {
       type: c.SELECT_KEG,
       ...kegData
     };
-    expect(selectedKegReducer({}, action)).toEqual(kegData);
+    expect(selectedKegReducer(undefined, action)).toEqual(kegData);
   });
 
   test('Should return an empty object keg selection is cleared', () => {
     const action = {
       type: c.CLEAR_SELECTED_KEG
     };
-    expect(selectedKegReducer(kegData, action)).toEqual({});
+    expect(selectedKegReducer(kegData, action)).toEqual(null);
   });
 
 })
