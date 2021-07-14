@@ -10,7 +10,6 @@ import * as a from './../actions';
 class KegControl extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       editing: false
     };
@@ -82,7 +81,6 @@ class KegControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    console.log(this.props.selectedKeg);
     if (this.state.editing) {
       currentlyVisibleState = (
         <EditKegForm
