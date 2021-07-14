@@ -10,7 +10,7 @@ _This application allows a bartender to keep track of the beers, ciders, hard se
 
 ## Componenet Diagram
 
-![tap-list](https://user-images.githubusercontent.com/80493022/124309612-d80afd00-db1f-11eb-88ca-de3bbd4db7e2.png)
+![tap-list](https://user-images.githubusercontent.com/80493022/125702584-87d1fe05-24ca-4721-b901-de42c17f0f51.png)
 
 ## Setup/Installation Requirements
 
@@ -32,7 +32,8 @@ _This application allows a bartender to keep track of the beers, ciders, hard se
 
 ## Known Bugs
 
-- No known bugs
+- Return to list button not working properly
+- Ordering a pint does not render new pint value but does change its value
 
 ## Contact
 
@@ -41,6 +42,7 @@ _Please contact through Github_
 ## Technologies Used
 
 - _React_
+- _Redux_
 - _JavaScript_
 - _HTML_
 - _webpack_
